@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Rainy Cloud</title>
+</head>
+<body>
+    <div class="container">
+        <div class="cloud"></div>
+    </div>
+    <script>
+        function randomText() {
+            var text = ("abcdefghiklmnopqrstuvwxyz0123456789");
+            letter = text[Math.floor(Math.random() * text.length)]
+            return letter;
+        }
+        function rain(){
+            let cloud = document.querySelector('.cloud')
+            let e = document.createElement('div');
+            let left = Math.floor(Math.random() * 320 );
+            let size = Math.random() *1.5
+            e.classList.add("text");
+            cloud.appendChild(e);
+            e.innerText = randomText();
+            e.style.left = left + 'px'
+            e.style.fontSize = 0.5 + size + 'em'
+            setTimeout(function(){
+                cloud.removeChild(e)
+            },2000)
+        }
+        setInterval(function(){
+            rain()
+        },20); 
+    </script>
+</body>
+</html>
